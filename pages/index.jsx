@@ -1,4 +1,5 @@
 import { Splide, SplideSlide } from '@splidejs/react-splide';
+import { useState, useEffect } from 'react';
 import Link from 'next/link'
 import harry from '../public/thumbnail.webp'
 import Image from 'next/image'
@@ -6,6 +7,17 @@ import Image from 'next/image'
 import '@splidejs/react-splide/css';
 
 export default function index() {
+  const [films, setFilm] = useState([])
+
+  useEffect(() => {
+    const getFilms = async () => {
+      const response = await fetch("https://filmaxxapi.herokuapp.com/api/film")
+      const data = await response.json()
+      console.log(data)
+      setFilm(data)
+    }
+    getFilms()
+  }, [])
   return (
     <>
       <nav className='w-full h-[60px] flex bg-[#121212]/75 shadow-md z-50 fixed'>
@@ -40,28 +52,58 @@ export default function index() {
               perMove: 1,
               gap: '10px',
               speed: 1000,
+              breakpoints: {
+                1920: {
+                  perPage: 1,
+                  padding: '20rem',
+                  gap: '30px',
+                  type: 'loop',
+                },
+                1024: {
+                  perPage: 1,
+                  padding: '10rem',
+                  gap: '15px',
+                  type: 'loop',
+                },
+                480: {
+                  perPage: 1,
+                  padding: '3rem',
+                  type: 'loop',
+                  gap: '10px',
+                },
+              },
             }} className="card-container absolute h-full w-full top-0 z-20 flex items-center p-0 justify-center text-white">
-              <SplideSlide className="card duration-200 w-full h-[70%] bg-white/[0.15] rounded-xl backdrop-blur-md flex items-center justify-center">
-                <div className="article w-[60%] h-full p-2">
-                  <div className="title h-[20%] w-full flex items-center text-2xl p-2">
-                    <h1>Harry Potter</h1>
+              {films.map((item) => (
+                <SplideSlide className="card duration-200 w-full h-[70%] md:h-[300px] bg-white/[0.15] rounded-xl backdrop-blur-md flex items-center justify-center" key={item.id}>
+                  <div className="article w-[60%] h-full p-2">
+                    <div className="title h-[30%] w-full flex items-center text-2xl md:text-3xl ">
+                      <h1 className='p-2'>{item.name}</h1>
+                    </div>
+                    <div className="description h-[50%] w-full text-xs md:text-sm flex items-center md:items-start font-light p-2">
+                      <p className="text-ellipsis overflow-hidden">{item.sinopsis}</p>
+                    </div>
+                    <div className="rating-button h-[20%] w-full flex items-center p-2">
+                      <div className="rating w-[50%] hidden md:flex items-center">
+                        <div class="flex items-center justify-center text-white">
+                          <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Rating star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                          <p class="ml-1 text-sm font-bold text-white">{item.rating}</p>
+                        </div>
+                      </div>
+                      <div className="button w-full md:w-[50%] flex md:justify-end items-center">
+                        <Link href="/"><a className="px-5 py-2 bg-red-600 text-xs rounded">Nonton</a></Link>
+                      </div>
+                    </div>
                   </div>
-                  <div className="description h-[50%] w-full text-xs flex items-center font-light p-2">
-                    <p className="text-ellipsis overflow-hidden">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dignissimos, accusantium quam veniam quibusdam libero ullam aliquam explicabo consequuntur quos. Dolorum.</p>
+                  <div className="img-wrapper w-[40%] h-full flex justify-center p-4">
+                    <Image className="rounded-xl w-[300px] h-[400px]"
+                      src={`${item.url}`}
+                      alt="Thumbnail"
+                      width="300px"
+                      height="400px"
+                    />
                   </div>
-                  <div className="rating-button h-[30%] w-full flex items-center p-2">
-                    <Link href="/"><a className="px-5 py-2 bg-red-600 text-xs rounded">Nonton</a></Link>
-                  </div>
-                </div>
-                <div className="img-wrapper w-[40%] h-full flex jutify-center items-center pr-4">
-                  <Image className="rounded-xl"
-                    src={harry}
-                    alt="Picture of the author"
-                    width="150px"
-                    height="200px"
-                  />
-                </div>
-              </SplideSlide>
+                </SplideSlide>
+              ))}
             </Splide>
           </div>
           <div className="section h-[40vh] text-white ">
@@ -81,6 +123,19 @@ export default function index() {
                 gap: '10px',
                 speed: 1000,
                 pagination: false,
+                breakpoints: {
+                  1920: {
+                    perPage: 9,
+                    gap: '1px',
+                  },
+                  1024: {
+                    perPage: 5,
+                    gap: '1px',
+                  },
+                  480: {
+                    perPage: 3,
+                  },
+                },
               }} className="absolute top-0 h-full w-full flex justify-center">
                 <SplideSlide className="card h-full">
                   <div className="img-wrapper overflow-hidden relative h-[150px] w-[100px] bg-harry bg-cover bg-center rounded-md group after:content-[''] after:absolute after:z-10 after:hover:bottom-0 after:-bottom-10 after:duration-200 after:left-0 after:w-full after:h-full after:bg-gradient-to-t after:from-[#121212] after:to-transparent after:rounded-md" >
@@ -98,6 +153,6 @@ export default function index() {
           </div>
         </div>
       </div>
-      </>
-      )
+    </>
+  )
 }

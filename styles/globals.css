@@ -27,7 +27,7 @@ a {
   background-position: center;
 }
 
-@media (max-width: 1024px){
+@media (max-width: 1920px){
 .splide__slide{
   transform: scale(1); /* sets all slides to a scaling of 0.8 (80%) */
   display: inline-flex;  /* used for all slides vertical align center */
@@ -35,6 +35,20 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+}
+
+@media (max-width: 1000px){
+.splide__slide{
+  transform: scale(1); /* sets all slides to a scaling of 0.8 (80%) */
+  display: inline-flex;  /* used for all slides vertical align center */
+  vertical-align: middle; /* used for all slides vertical align center */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.splide__slide.is-active{
+  transform: scale(1);
 }
 .splide__slide.is-prev{
   transform: scale(0.95); /* sets the active slide to scaling of 1 (100%) */
