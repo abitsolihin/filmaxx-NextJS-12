@@ -1,7 +1,7 @@
 import Navbar from "../Components/Navbar"
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import Link from 'next/link'
-import harry from '../../frontend/public/thumbnail.webp'
+import harry from '../public/thumbnail.webp'
 import Image from 'next/image'
 
 import '@splidejs/react-splide/css';
