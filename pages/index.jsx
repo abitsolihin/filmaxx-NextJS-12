@@ -5,17 +5,17 @@ import Image from 'next/image'
 
 import '@splidejs/react-splide/css';
 
-export default function index() {
+export default function Index() {
   const [films, setFilm] = useState([])
 
   useEffect(() => {
-    const GetFilms = async () => {
+    const getFilms = async () => {
       const response = await fetch("https://filmaxxapi.herokuapp.com/api/film")
       const data = await response.json()
       console.log(data)
       setFilm(data)
     }
-    GetFilms()
+    getFilms()
   }, [])
   return (
     <>
