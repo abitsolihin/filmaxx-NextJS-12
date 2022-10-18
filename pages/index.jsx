@@ -64,7 +64,7 @@ const index = () => {
               pagination: false,
             }} className="absolute top-0 h-full w-full flex justify-center">
               <SplideSlide className="card h-full">
-                <div className="img-wrapper relative h-[120px] w-[140px] bg-harry bg-cover bg-center rounded-md group after:content-[''] after:absolute after:z-10 after:hover:bottom-0 after:-bottom-10 after:duration-200 after:left-0 after:w-full after:h-full after:bg-gradient-to-t after:from-[#121212] after:to-transparent after:rounded-md" >
+                <div className="img-wrapper overflow-hidden relative h-[120px] w-[140px] bg-harry bg-cover bg-center rounded-md group after:content-[''] after:absolute after:z-10 after:hover:bottom-0 after:-bottom-10 after:duration-200 after:left-0 after:w-full after:h-full after:bg-gradient-to-t after:from-[#121212] after:to-transparent after:rounded-md" >
                   <div className="kategori absolute right-0 top-0 text-xs px-2 py-1 bg-red-600 rounded-tr-md rounded-bl-md">
                     <h2>Movie</h2>
                   </div>
