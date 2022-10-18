@@ -1,7 +1,6 @@
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import { useState, useEffect } from 'react';
 import Link from 'next/link'
-import harry from '../public/thumbnail.webp'
 import Image from 'next/image'
 
 import '@splidejs/react-splide/css';
@@ -10,13 +9,13 @@ export default function index() {
   const [films, setFilm] = useState([])
 
   useEffect(() => {
-    const getFilms = async () => {
+    const GetFilms = async () => {
       const response = await fetch("https://filmaxxapi.herokuapp.com/api/film")
       const data = await response.json()
       console.log(data)
       setFilm(data)
     }
-    getFilms()
+    GetFilms()
   }, [])
   return (
     <>
@@ -74,7 +73,7 @@ export default function index() {
               },
             }} className="card-container absolute h-full w-full top-0 z-20 flex items-center p-0 justify-center text-white">
               {films.map((item) => (
-                <SplideSlide className="card duration-200 w-full h-[70%] md:h-[300px] bg-white/[0.15] rounded-xl backdrop-blur-md flex items-center justify-center" key={item.id}>
+                <SplideSlide className="card duration-200 w-full h-[70%] md:h-[300px] bg-white/25 rounded-xl backdrop-blur-md flex items-center justify-center" key={item.id}>
                   <div className="article w-[60%] h-full p-2">
                     <div className="title h-[30%] w-full flex items-center text-2xl md:text-3xl ">
                       <h1 className='p-2'>{item.name}</h1>
