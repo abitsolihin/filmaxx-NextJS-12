@@ -8,8 +8,8 @@ import '@splidejs/react-splide/css';
 const index = () => {
 
   return (
-    <div className="w-screen h-screen bg-[#121212]">
-      <nav className='w-full h-[60px] flex bg-[#121212]/75 fixed shadow-md z-50'>
+      <div className="container w-full min-h-[100vh] bg-[#121212]">
+      <nav className='w-full h-[60px] flex bg-[#121212]/75 shadow-md z-50'>
         <div className="logo p-4 w-[40%]">
           <h1 className='text-red-500 text-xl font-bold'>FILMAXX</h1>
         </div>
@@ -29,7 +29,7 @@ const index = () => {
           </div>
         </div>
       </nav>
-      <div className="section h-full w-full">
+      <div className="section h-[70vh] w-full">
         <div className="background-container relative w-full h-[70%] after:content-[''] after:absolute after:z-10 after:top-0 after:left-0 after:w-[60%] after:h-full after:bg-gradient-to-r after:from-[#121212] after:to-transparent before:content-[''] before:absolute before:z-10 before:top-0 before:right-0 before:w-[60%] before:h-full before:bg-gradient-to-l before:from-[#121212] before:to-transparent">
           <div className="card-container absolute h-full w-full top-0 z-20 flex items-center justify-center text-white">
             <Splide className="absolute h-full w-full top-0 z-20 flex items-center text-white" options={{
@@ -64,7 +64,7 @@ const index = () => {
             </Splide>
           </div>
         </div>
-        <div className="section h-[30%] text-white ">
+        <div className="section h-[30vh] text-white ">
           <div className="title-wrapper flex p-4">
             <div className="title w-3/6 text-xl">Rekomendasi</div>
             <div className="genre w-3/6 flex justify-end gap-2 text-xs items-center">
@@ -96,7 +96,7 @@ const index = () => {
           </div>
         </div>
       </div>
-    </div>
+      </div>
   )
 }
 
