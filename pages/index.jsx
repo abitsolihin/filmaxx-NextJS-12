@@ -73,7 +73,7 @@ export default function Index() {
               },
             }} className="card-container absolute h-full w-full top-0 z-20 flex items-center p-0 justify-center text-white">
               {films.map((item) => (
-                <SplideSlide className="card duration-200 w-full h-[70%] md:h-[300px] bg-white/25 rounded-xl backdrop-blur-md flex items-center justify-center" key={item.id}>
+                <SplideSlide className="card duration-200 w-full h-[70%] md:h-[300px] bg-white/25 rounded-xl backdrop-blur-xl flex items-center justify-center" key={item.id}>
                   <div className="article w-[60%] h-full p-2">
                     <div className="title h-[30%] w-full flex items-center text-2xl md:text-3xl ">
                       <h1 className='p-2'>{item.name}</h1>
