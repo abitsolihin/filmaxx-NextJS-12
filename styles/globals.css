@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.slick-slider{
+  z-index: 100;
+}
+.background-container{
+  background-image: url('../public/thumbnail.webp');
+  background-size: cover;
+  background-position: center;
+}
+
+@media (max-width: 1024px){
+.splide__slide{
+  transform: scale(1); /* sets all slides to a scaling of 0.8 (80%) */
+  display: inline-flex;  /* used for all slides vertical align center */
+  vertical-align: middle; /* used for all slides vertical align center */
+}
+.splide__slide.is-prev{
+  transform: scale(0.95); /* sets the active slide to scaling of 1 (100%) */
+}
+.splide__slide.is-next{
+  transform: scale(0.95); /* sets the active slide to scaling of 1 (100%) */
+}
+}
+
+
+@media (min-width: 1280px) {
+  .swiper.swiper-initialized.swiper-horizontal.swiper-pointer-events{
+    height: 100%;
+  }
+
+.swiper-slide {
+  transform: scale(1);
+  transition: all 0.2s ease-in-out;
+}
+.swiper-slide.swiper-slide-active {
+  transform: scale(1.1);
+  transition: all 0.2s ease-in-out;
+}
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+  body {
+    color: white;
+    background: black;
+  }
+}
