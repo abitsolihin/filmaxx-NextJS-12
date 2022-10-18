@@ -5,10 +5,9 @@ import Image from 'next/image'
 
 import '@splidejs/react-splide/css';
 
-const index = () => {
-
+export default function index(){
   return (
-      <div className="container max-w-[100vw] min-h-[100vh] bg-[#121212]">
+    <div className="container max-w-[100vw] min-h-[100vh] bg-[#121212]">
       <nav className='w-full h-[60px] flex bg-[#121212]/75 shadow-md z-50'>
         <div className="logo p-4 w-[40%]">
           <h1 className='text-red-500 text-xl font-bold'>FILMAXX</h1>
@@ -31,82 +30,99 @@ const index = () => {
       </nav>
       <div className="section h-[70vh] w-full">
         <div className="background-container relative w-full h-[70%] after:content-[''] after:absolute after:z-10 after:top-0 after:left-0 after:w-[60%] after:h-full after:bg-gradient-to-r after:from-[#121212] after:to-transparent before:content-[''] before:absolute before:z-10 before:top-0 before:right-0 before:w-[60%] before:h-full before:bg-gradient-to-l before:from-[#121212] before:to-transparent">
-          <div className="card-container absolute h-full w-full top-0 z-20 flex items-center justify-center text-white">
-            <Splide className="absolute h-full w-full top-0 z-20 flex items-center text-white" options={{
-              type: 'loop',
-              autoplay: 'true',
-              perPage: 1,
-              perMove: 1,
-              padding: '2rem',
-              gap: '5px',
-              focus: 'center',
-              pagination: false,
-            }}>
-              <SplideSlide className="card duration-200 w-full h-[50%] bg-white/[0.15] rounded-xl backdrop-blur-md flex items-center">
-                <div className="article w-[60%] h-full p-2">
-                  <div className="title h-[20%] w-full flex items-center text-2xl p-2">
-                    <h1>Harry Potter</h1>
-                  </div>
-                  <div className="description h-[50%] w-full text-xs flex items-center font-light p-2">
-                    <p className="text-ellipsis overflow-hidden">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dignissimos, accusantium quam veniam quibusdam libero ullam aliquam explicabo consequuntur quos. Dolorum.</p>
-                  </div>
-                  <div className="rating-button h-[30%] w-full flex items-center p-2">
-                    <Link href="/"><a className="px-5 py-2 bg-red-600 text-xs rounded">Nonton</a></Link>
-                  </div>
+          <Splide options={{
+            type: 'loop',
+            padding: '3rem',
+            pagination: false,
+            autoplay: true,
+            gap: '10px',
+            speed: 2000,
+          }} className="card-container absolute h-full w-full top-0 z-20 flex items-center justify-center text-white">
+            <SplideSlide className="card duration-200 w-full h-[70%] bg-white/[0.15] rounded-xl backdrop-blur-md flex items-center justify-center">
+              <div className="article w-[60%] h-full p-2">
+                <div className="title h-[20%] w-full flex items-center text-2xl p-2">
+                  <h1>Harry Potter</h1>
                 </div>
-                <div className="img-wrapper w-[40%] h-full flex jutify-center items-center pr-4">
-                  <Image className="rounded-xl"
-                    src={harry}
-                    alt="Picture of the author"
-                    width="150px"
-                    height="200px"
-                  />
+                <div className="description h-[50%] w-full text-xs flex items-center font-light p-2">
+                  <p className="text-ellipsis overflow-hidden">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dignissimos, accusantium quam veniam quibusdam libero ullam aliquam explicabo consequuntur quos. Dolorum.</p>
                 </div>
-              </SplideSlide>
-              <SplideSlide className="card duration-200 w-full h-[50%] bg-white/[0.15] rounded-xl backdrop-blur-md flex items-center">
-                <div className="article w-[60%] h-full p-2">
-                  <div className="title h-[20%] w-full flex items-center text-2xl p-2">
-                    <h1>Harry Potter</h1>
-                  </div>
-                  <div className="description h-[50%] w-full text-xs flex items-center font-light p-2">
-                    <p className="text-ellipsis overflow-hidden">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dignissimos, accusantium quam veniam quibusdam libero ullam aliquam explicabo consequuntur quos. Dolorum.</p>
-                  </div>
-                  <div className="rating-button h-[30%] w-full flex items-center p-2">
-                    <Link href="/"><a className="px-5 py-2 bg-red-600 text-xs rounded">Nonton</a></Link>
-                  </div>
+                <div className="rating-button h-[30%] w-full flex items-center p-2">
+                  <Link href="/"><a className="px-5 py-2 bg-red-600 text-xs rounded">Nonton</a></Link>
                 </div>
-                <div className="img-wrapper w-[40%] h-full flex jutify-center items-center pr-4">
-                  <Image className="rounded-xl"
-                    src={harry}
-                    alt="Picture of the author"
-                    width="150px"
-                    height="200px"
-                  />
+              </div>
+              <div className="img-wrapper w-[40%] h-full flex jutify-center items-center pr-4">
+                <Image className="rounded-xl"
+                  src={harry}
+                  alt="Picture of the author"
+                  width="150px"
+                  height="200px"
+                />
+              </div>
+            </SplideSlide>
+            <SplideSlide className="card duration-200 w-full h-[70%] bg-white/[0.15] rounded-xl backdrop-blur-md flex items-center justify-center">
+              <div className="article w-[60%] h-full p-2">
+                <div className="title h-[20%] w-full flex items-center text-2xl p-2">
+                  <h1>Harry Potter</h1>
                 </div>
-              </SplideSlide>
-              <SplideSlide className="card duration-200 w-full h-[50%] bg-white/[0.15] rounded-xl backdrop-blur-md flex items-center">
-                <div className="article w-[60%] h-full p-2">
-                  <div className="title h-[20%] w-full flex items-center text-2xl p-2">
-                    <h1>Harry Potter</h1>
-                  </div>
-                  <div className="description h-[50%] w-full text-xs flex items-center font-light p-2">
-                    <p className="text-ellipsis overflow-hidden">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dignissimos, accusantium quam veniam quibusdam libero ullam aliquam explicabo consequuntur quos. Dolorum.</p>
-                  </div>
-                  <div className="rating-button h-[30%] w-full flex items-center p-2">
-                    <Link href="/"><a className="px-5 py-2 bg-red-600 text-xs rounded">Nonton</a></Link>
-                  </div>
+                <div className="description h-[50%] w-full text-xs flex items-center font-light p-2">
+                  <p className="text-ellipsis overflow-hidden">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dignissimos, accusantium quam veniam quibusdam libero ullam aliquam explicabo consequuntur quos. Dolorum.</p>
                 </div>
-                <div className="img-wrapper w-[40%] h-full flex jutify-center items-center pr-4">
-                  <Image className="rounded-xl"
-                    src={harry}
-                    alt="Picture of the author"
-                    width="150px"
-                    height="200px"
-                  />
+                <div className="rating-button h-[30%] w-full flex items-center p-2">
+                  <Link href="/"><a className="px-5 py-2 bg-red-600 text-xs rounded">Nonton</a></Link>
                 </div>
-              </SplideSlide>
-            </Splide>
-          </div>
+              </div>
+              <div className="img-wrapper w-[40%] h-full flex jutify-center items-center pr-4">
+                <Image className="rounded-xl"
+                  src={harry}
+                  alt="Picture of the author"
+                  width="150px"
+                  height="200px"
+                />
+              </div>
+            </SplideSlide>
+            <SplideSlide className="card duration-200 w-full h-[70%] bg-white/[0.15] rounded-xl backdrop-blur-md flex items-center justify-center">
+              <div className="article w-[60%] h-full p-2">
+                <div className="title h-[20%] w-full flex items-center text-2xl p-2">
+                  <h1>Harry Potter</h1>
+                </div>
+                <div className="description h-[50%] w-full text-xs flex items-center font-light p-2">
+                  <p className="text-ellipsis overflow-hidden">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dignissimos, accusantium quam veniam quibusdam libero ullam aliquam explicabo consequuntur quos. Dolorum.</p>
+                </div>
+                <div className="rating-button h-[30%] w-full flex items-center p-2">
+                  <Link href="/"><a className="px-5 py-2 bg-red-600 text-xs rounded">Nonton</a></Link>
+                </div>
+              </div>
+              <div className="img-wrapper w-[40%] h-full flex jutify-center items-center pr-4">
+                <Image className="rounded-xl"
+                  src={harry}
+                  alt="Picture of the author"
+                  width="150px"
+                  height="200px"
+                />
+              </div>
+            </SplideSlide>
+            <SplideSlide className="card duration-200 w-full h-[70%] bg-white/[0.15] rounded-xl backdrop-blur-md flex items-center justify-center">
+              <div className="article w-[60%] h-full p-2">
+                <div className="title h-[20%] w-full flex items-center text-2xl p-2">
+                  <h1>Harry Potter</h1>
+                </div>
+                <div className="description h-[50%] w-full text-xs flex items-center font-light p-2">
+                  <p className="text-ellipsis overflow-hidden">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dignissimos, accusantium quam veniam quibusdam libero ullam aliquam explicabo consequuntur quos. Dolorum.</p>
+                </div>
+                <div className="rating-button h-[30%] w-full flex items-center p-2">
+                  <Link href="/"><a className="px-5 py-2 bg-red-600 text-xs rounded">Nonton</a></Link>
+                </div>
+              </div>
+              <div className="img-wrapper w-[40%] h-full flex jutify-center items-center pr-4">
+                <Image className="rounded-xl"
+                  src={harry}
+                  alt="Picture of the author"
+                  width="150px"
+                  height="200px"
+                />
+              </div>
+            </SplideSlide>
+          </Splide>
         </div>
         <div className="section h-[30vh] text-white ">
           <div className="title-wrapper flex p-4">
@@ -140,8 +156,6 @@ const index = () => {
           </div>
         </div>
       </div>
-      </div>
+    </div>
   )
 }
-
-export default index
