@@ -107,7 +107,7 @@ export default function Index() {
           </div>
           <div className="section h-[40vh] text-white ">
             <div className="title-wrapper flex p-4">
-              <div className="title w-3/6 text-xl">Rekomendasi</div>
+              <div className="title w-3/6 text-xl md:text-2xl">Rekomendasi</div>
               <div className="genre w-3/6 flex justify-end gap-2 text-xs items-center">
                 <Link href=""><a>Action</a></Link>
                 <Link href=""><a>Movie</a></Link>
