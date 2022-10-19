@@ -19,7 +19,7 @@ export default function Index() {
   }, [])
   return (
     <>
-      <nav className='w-full h-[60px] flex bg-[#121212]/75 shadow-md z-50 fixed'>
+      <nav className='w-full h-[60px] flex bg-[#121212]/25 backdrop-blur-xl shadow-md z-50 fixed'>
         <div className="logo p-4 w-[40%]">
           <h1 className='text-red-500 text-xl font-bold'>FILMAXX</h1>
         </div>
