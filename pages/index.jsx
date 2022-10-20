@@ -167,7 +167,7 @@ export default function Index() {
                 {films.map((film) => {
                   const { id, name, genre, url, rating } = film
                   return (
-                    <Link href="/">
+                    <Link href="/" key={id}>
                       <SplideSlide className="card h-full">
                         <div style={{ backgroundImage: `url(${url})` }} className="img-wrapper overflow-hidden relative h-[150px] w-[100px] md:h-[180px] md:w-[130px] 2xl:h-[200px] 2xl:w-[150px] bg-cover bg-center rounded-md group after:content-[''] after:absolute after:z-10 after:hover:bottom-0 after:-bottom-80 after:duration-200 after:left-0 after:w-full after:h-full after:bg-gradient-to-t after:from-[#121212] after:to-[#121212]/25 after:rounded-md cursor-pointer"
                         >
