@@ -150,7 +150,7 @@ export default function Index() {
                   },
                   1920: {
                     perPage: 9,
-                    gap: '1px',
+                    gap: '10px',
                   },
                   1024: {
                     perPage: 7,
