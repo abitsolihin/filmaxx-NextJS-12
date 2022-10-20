@@ -41,7 +41,10 @@ export default function Index() {
       </nav>
       <div className="container max-w-[100vw] min-h-[100%]">
         <div className="section h-[70vh] w-full">
-          <div className="background-container relative w-full h-[100%] after:content-[''] after:absolute after:z-10 after:top-0 after:left-0 after:w-[60%] after:h-full after:bg-gradient-to-r after:from-[#121212] after:to-transparent before:content-[''] before:absolute before:z-10 before:top-0 before:right-0 before:w-[60%] before:h-full before:bg-gradient-to-l before:from-[#121212] before:to-transparent">
+          <div className="background-container w-full h-full relative">
+            <video autoPlay muted loop className="object-cover absolute w-full h-full">
+              <source src="trailer.mp4" type="video/mp4" />
+            </video>
             <Splide options={{
               type: 'loop',
               padding: '3rem',
@@ -89,7 +92,7 @@ export default function Index() {
                   pagination: false,
                 },
               },
-            }} className="card-container absolute h-full w-full top-0 z-20 flex items-center p-0 justify-center text-white">
+            }} className="card-container absolute h-full w-full top-0 z-30 flex items-center p-0 justify-center text-white">
               {films.map((item) => (
                 <SplideSlide className="card duration-200 w-full h-[70%] md:h-[300px] 2xl:h-[400px] bg-gray-500/25 rounded-xl backdrop-blur-xl flex items-center justify-center" key={item.id}>
                   <div className="article w-[60%] h-full p-2">
@@ -166,7 +169,8 @@ export default function Index() {
                   return (
                     <Link href="/">
                       <SplideSlide className="card h-full " key={id}>
-                        <div style={{ backgroundImage: `url(${url})` }} className="img-wrapper overflow-hidden relative h-[150px] w-[100px] md:h-[180px] md:w-[130px] 2xl:h-[200px] 2xl:w-[150px] bg-harry bg-cover bg-center rounded-md group after:content-[''] after:absolute after:z-10 after:hover:bottom-0 after:-bottom-80 after:duration-200 after:left-0 after:w-full after:h-full after:bg-gradient-to-t after:from-[#121212] after:to-[#121212]/25 after:rounded-md cursor-pointer" >
+                        <div style={{ backgroundImage: `url(${url})` }} className="img-wrapper overflow-hidden relative h-[150px] w-[100px] md:h-[180px] md:w-[130px] 2xl:h-[200px] 2xl:w-[150px] bg-cover bg-center rounded-md group after:content-[''] after:absolute after:z-10 after:hover:bottom-0 after:-bottom-80 after:duration-200 after:left-0 after:w-full after:h-full after:bg-gradient-to-t after:from-[#121212] after:to-[#121212]/25 after:rounded-md cursor-pointer"
+                        >
                           <div className="kategori absolute right-0 top-0 text-xs px-2 py-1 bg-red-600 rounded-tr-md rounded-bl-md z-30">
                             <h2>{genre}</h2>
                           </div>

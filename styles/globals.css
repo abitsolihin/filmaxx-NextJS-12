@@ -21,12 +21,6 @@ a {
   box-sizing: border-box;
 }
 
-.background-container{
-  background-image: url('../public/thumbnail.webp');
-  background-size: cover;
-  background-position: center;
-}
-
 @media (max-width: 2560px){
   .splide__slide{
   transform: scale(1); /* sets all slides to a scaling of 0.8 (80%) */
