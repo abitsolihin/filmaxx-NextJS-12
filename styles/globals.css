@@ -27,6 +27,17 @@ a {
   background-position: center;
 }
 
+@media (max-width: 2560px){
+  .splide__slide{
+  transform: scale(1); /* sets all slides to a scaling of 0.8 (80%) */
+  display: inline-flex;  /* used for all slides vertical align center */
+  vertical-align: middle; /* used for all slides vertical align center */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+}
+
 @media (max-width: 1920px){
 .splide__slide{
   transform: scale(1); /* sets all slides to a scaling of 0.8 (80%) */
@@ -35,6 +46,35 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.splide__pagination{
+  gap: 5px;
+
+}
+.splide__pagination li{
+  width: 40px;
+  margin-left: 10px;
+  margin-right: 10px;
+   display: flex;
+  justify-content: center;
+  align-items: center;
+  
+
+}
+.splide__pagination li button{
+  border-radius: 0;
+  width: 25px;
+  height: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+.splide__pagination li button.is-active{
+  width: 30px;
+  transform: scale(1.05);
+
+  opacity: 1;
 }
 }
 
