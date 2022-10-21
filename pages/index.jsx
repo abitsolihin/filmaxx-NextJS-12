@@ -1,8 +1,7 @@
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import { useState, useEffect } from 'react';
 import Link from 'next/link'
-import Image from 'next/image'
-import axios from 'axios'
+import Head from 'next/head'
 
 import '@splidejs/react-splide/css';
 
@@ -20,6 +19,10 @@ export default function Index() {
   }, [])
   return (
     <>
+      <Head>
+        <title>Filmaxx | Nonton Film Tanpa Iklan</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <nav className='w-full h-[60px] flex bg-[#121212]/25 backdrop-blur-xl shadow-md z-50 fixed'>
         <div className="logo p-4 w-[40%]">
           <h1 className='text-red-500 text-xl font-bold'>FILMAXX</h1>
