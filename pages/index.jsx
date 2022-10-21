@@ -23,7 +23,6 @@ export default function Index() {
       <Head>
         <title>Filmaxx | Nonton Film Tanpa Iklan</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"></meta>
       </Head>
       <nav className='w-full h-[60px] flex bg-[#121212]/25 backdrop-blur-xl shadow-md z-50 fixed'>
         <div className="logo p-4 w-[40%]">
