@@ -5,6 +5,7 @@ const nextConfig = {
   images: {
     domains: ['filmaxxapi.herokuapp.com'],
   },
+  env: { NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL },
 };
 
 const withVideos = require('next-videos');
