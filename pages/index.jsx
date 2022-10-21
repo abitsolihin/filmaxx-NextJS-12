@@ -2,6 +2,7 @@ import { Splide, SplideSlide } from '@splidejs/react-splide';
 import { useState, useEffect } from 'react';
 import Link from 'next/link'
 import Image from 'next/image'
+import axios from 'axios'
 
 import '@splidejs/react-splide/css';
 
@@ -10,7 +11,7 @@ export default function Index() {
 
   useEffect(() => {
     const getFilms = async () => {
-      const response = await fetch("https://filmaxxapi.herokuapp.com/api/films")
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/films`)
       const data = await response.json()
       console.log(data)
       setFilm(data)
@@ -29,10 +30,10 @@ export default function Index() {
           <span className='h-[3px] w-[40px] bg-white'></span>
         </div>
         <div className="right hidden sm:flex w-full">
-          <div className="navlist w-[80%] lg:w-[85%] text-white flex items-center justify-end text-sm">
-            <Link href="/"><a className="px-4 py-5 relative after:content-[''] after:bottom-0 after:h-[2px] hover:after:w-full after:w-0 after:absolute after:bg-red-600 flex flex-col justify-center items-center after:duration-200">Daftar Film</a></Link>
-            <Link href="/"><a className="px-4 py-5 relative after:content-[''] after:bottom-0 after:h-[2px] hover:after:w-full after:w-0 after:absolute after:bg-red-600 flex flex-col justify-center items-center after:duration-200">Kartun</a></Link>
-            <Link href="/"><a className="px-4 py-5 relative after:content-[''] after:bottom-0 after:h-[2px] hover:after:w-full after:w-0 after:absolute after:bg-red-600 flex flex-col justify-center items-center after:duration-200">Action</a></Link>
+          <div className="navlist w-[80%] lg:w-[85%] text-white flex items-center justify-end text-sm gap-4">
+            <Link href="/"><a className=" py-5 relative after:content-[''] after:bottom-0 after:h-[2px] hover:after:w-full after:w-0 after:absolute after:bg-red-600 flex flex-col justify-center items-center after:duration-200">Daftar Film</a></Link>
+            <Link href="/"><a className=" py-5 relative after:content-[''] after:bottom-0 after:h-[2px] hover:after:w-full after:w-0 after:absolute after:bg-red-600 flex flex-col justify-center items-center after:duration-200">Genre</a></Link>
+            <Link href="/"><a className=" py-5 relative after:content-[''] after:bottom-0 after:h-[2px] hover:after:w-full after:w-0 after:absolute after:bg-red-600 flex flex-col justify-center items-center after:duration-200">Baru Rilis</a></Link>
           </div>
           <div className="button w-[20%] lg:w-[15%] text-white flex items-center justify-center">
             <Link href='/'><a className="hover:bg-red-600 border-2 border-solid border-red-600 duration-200 px-5 text-sm py-2 rounded" >Sign In</a></Link>
@@ -96,8 +97,8 @@ export default function Index() {
               {films.map((item) => (
                 <SplideSlide className="card duration-200 w-full h-[70%] md:h-[300px] 2xl:h-[400px] bg-gray-600/25 rounded-xl backdrop-blur-xl flex items-center justify-center" key={item.id}>
                   <div className="article w-[60%] h-full p-2">
-                    <div className="title md:h-[30%] h-[50px] truncate w-full flex items-center text-xl md:text-3xl ">
-                      <h1 className='p-2'>{item.name}</h1>
+                    <div className="title md:h-[30%] h-[50px]  w-full flex items-center text-xl md:text-3xl ">
+                      <h1 className='p-2 truncate'>{item.name}</h1>
                     </div>
                     <div className="description h-[90px] md:h-[120px] 2xl:h-[50%] overflow-ellipsis w-full text-xs 2xl:text-base md:text-sm flex items-center md:items-start font-light p-2">
                       <p className="h-[80px] md:h-[120px] 2xl:h-full overflow-ellipsis overflow-y-hidden">{item.sinopsis}</p>
@@ -114,13 +115,10 @@ export default function Index() {
                       </div>
                     </div>
                   </div>
-                  <div className="img-wrapper w-[40%] h-full flex justify-center p-4">
-                    <Image className="rounded-xl w-[300px] h-[400px]"
-                      src={item.url}
-                      alt="Thumbnail"
-                      width="300px"
-                      height="400px"
-                    />
+                  <div className="img-wrapper w-[40%] h-[170px] md:h-[100%] flex justify-center p-4">
+                    <div style={{ backgroundImage: `url(${item.url})` }} className="rounded-xl w-full h-full bg-cover bg-center"
+                     
+                    ></div>
                   </div>
                 </SplideSlide>
               ))}
@@ -130,7 +128,7 @@ export default function Index() {
             <div className="title-wrapper flex p-4">
               <div className="title w-3/6 text-xl md:text-2xl lg:text-3xl">Rekomendasi</div>
               <div className="genre w-3/6 flex justify-end gap-2 xl:gap-8 text-xs 2xl:text-xl items-center">
-                <Link href=""><a className="text-xs xl:text-base py-1 relative after:content-[''] after:bottom-0 after:h-[2px] hover:after:w-full after:w-0 after:absolute after:bg-red-600 flex flex-col justify-center items-center after:duration-200">Action</a></Link>
+                <Link href=""><a className="text-xs xl:text-base py-1 relative after:content-[''] after:bottom-0 after:h-[2px] hover:after:w-full after:w-0 after:absolute after:bg-red-600 flex flex-col justify-center items-center after:duration-200">Aksi</a></Link>
                 <Link href=""><a className="text-xs xl:text-base py-1 relative after:content-[''] after:bottom-0 after:h-[2px] hover:after:w-full after:w-0 after:absolute after:bg-red-600 flex flex-col justify-center items-center after:duration-200">Movie</a></Link>
                 <Link href=""><a className="text-xs xl:text-base py-1 relative after:content-[''] after:bottom-0 after:h-[2px] hover:after:w-full after:w-0 after:absolute after:bg-red-600 flex flex-col justify-center items-center after:duration-200">Kartun</a></Link>
               </div>

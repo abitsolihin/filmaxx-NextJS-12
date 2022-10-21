@@ -6,6 +6,7 @@ const nextConfig = {
     domains: ['filmaxxapi.herokuapp.com'],
   },
 };
+
 const withVideos = require('next-videos');
 module.exports = withVideos();
 
