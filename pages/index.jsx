@@ -51,15 +51,6 @@ export default function Index() {
               <source src="trailer.mp4" type="video/mp4" />
             </video>
             <Splide options={{
-              type: 'loop',
-              padding: '3rem',
-              pagination: false,
-              autoplay: true,
-              perPage: 1,
-              start: 10,
-              perMove: 1,
-              gap: '10px',
-              speed: 1000,
               breakpoints: {
                 2560: {
                   perPage: 3,
