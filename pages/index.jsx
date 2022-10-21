@@ -58,6 +58,7 @@ export default function Index() {
                   gap: '30px',
                   type: 'loop',
                   pagination: true,
+                  arrows: false,
                 },
                 1920: {
                   perPage: 2,
@@ -65,6 +66,7 @@ export default function Index() {
                   gap: '30px',
                   type: 'loop',
                   pagination: true,
+                  arrows: false,
                 },
                 1028: {
                   perPage: 1,
@@ -72,6 +74,7 @@ export default function Index() {
                   gap: '15px',
                   type: 'loop',
                   pagination: true,
+                  arrows: false,
                 },
                 820: {
                   perPage: 1,
@@ -79,6 +82,7 @@ export default function Index() {
                   type: 'loop',
                   gap: '10px',
                   pagination: false,
+                  arrows: false,
                 },
                 480: {
                   perPage: 1,
@@ -86,6 +90,7 @@ export default function Index() {
                   type: 'loop',
                   gap: '10px',
                   pagination: false,
+                  arrows: false,
                 },
               },
             }} className="card-container absolute h-full w-full top-0 z-30 flex items-center p-0 justify-center text-white">
@@ -151,9 +156,11 @@ export default function Index() {
                   },
                   820: {
                     perPage: 5,
+                    arrows: false,
                   },
                   480: {
                     perPage: 3,
+                    arrows: false,
                   },
                 },
               }} className="absolute top-0 h-full w-full flex justify-center">
