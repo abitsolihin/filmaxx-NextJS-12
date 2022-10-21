@@ -10,9 +10,8 @@ export default function Index() {
 
   useEffect(() => {
     const getFilms = async () => {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/films`, {
-        referrerPolicy: "unsafe_url"  
-      })
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/films`
+      )
       const data = await response.json()
       console.log(data)
       setFilm(data)
