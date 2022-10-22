@@ -4,7 +4,7 @@ import Head from 'next/head'
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 
-const genre = () => {
+const Name = () => {
     const [title, setTitle] = useState("")
     const [sinopsis, setSinopsis] = useState("")
     const [kategori, setKategori] = useState("")
@@ -159,4 +159,4 @@ const genre = () => {
     )
 }
 
-export default genre
+export default Name
