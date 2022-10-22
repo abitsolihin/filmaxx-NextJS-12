@@ -12,10 +12,10 @@ const film = () => {
     const [streamUrl, setStreamURL] = useState("")
     const [background, setBackground] = useState("")
     const router = useRouter()
-    const { endpoint } = router.query;
+    const { film } = router.query;
 
     useEffect(() => {
-        axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/films/film/${endpoint}`)
+        axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/films/film/${film}`)
             .then((res) => {
                 setTitle(res.data.name)
                 setImage(res.data.url)
@@ -27,7 +27,7 @@ const film = () => {
             .catch((err) => {
                 console.log(err)
             })
-    }, [endpoint])
+    }, [film])
     return (
         <>
             <Head>
