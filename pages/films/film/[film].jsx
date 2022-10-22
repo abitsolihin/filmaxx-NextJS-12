@@ -4,7 +4,7 @@ import Head from 'next/head'
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 
-const Name = () => {
+const film = () => {
     const [title, setTitle] = useState("")
     const [sinopsis, setSinopsis] = useState("")
     const [kategori, setKategori] = useState("")
@@ -14,20 +14,20 @@ const Name = () => {
     const router = useRouter()
     const { endpoint } = router.query;
 
-        useEffect(() => {
-            axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/films/film/${endpoint}`)
-                .then((res) => {
-                    setTitle(res.data.name)
-                    setImage(res.data.url)
-                    setSinopsis(res.data.sinopsis)
-                    setKategori(res.data.genre)
-                    setStreamURL(res.data.stream_url)
-                    setBackground(res.data.background_url)
-                })
-                .catch((err) => {
-                    console.log(err)
-                })
-        }, [endpoint])
+    useEffect(() => {
+        axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/films/film/${endpoint}`)
+            .then((res) => {
+                setTitle(res.data.name)
+                setImage(res.data.url)
+                setSinopsis(res.data.sinopsis)
+                setKategori(res.data.genre)
+                setStreamURL(res.data.stream_url)
+                setBackground(res.data.background_url)
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+    }, [endpoint])
     return (
         <>
             <Head>
@@ -159,4 +159,4 @@ const Name = () => {
     )
 }
 
-export default Name
+export default film
