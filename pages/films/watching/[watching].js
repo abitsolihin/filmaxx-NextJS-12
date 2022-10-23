@@ -84,7 +84,7 @@ const watching = () => {
           <div className="title-wrapper h-[20%] w-full truncate text-lg md:text-2xl font-bold py-4">{title}</div>
           <div className="img-info h-[80%] flex gap-4">
             <div className="img w-[40%] flex justify-center">
-              <img src={image} width={320} height={400} alt="image" />
+              <img src={image} width={350} height={400} alt="image" />
             </div>
             <div className="right w-[60%] text-sm md:text-base">
               <p>Sinopsis : {sinopsis}</p>
