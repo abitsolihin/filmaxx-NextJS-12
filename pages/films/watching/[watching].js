@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 
-const watching = () => {
+const Watching = () => {
   const [stream, setStream] = useState('');
   const [title, setTitle] = useState('');
   const [sinopsis, setSinopsis] = useState('');
@@ -101,4 +101,4 @@ const watching = () => {
   )
 }
 
-export default watching
+export default Watching
