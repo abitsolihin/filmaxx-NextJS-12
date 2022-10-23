@@ -12,7 +12,11 @@ export default function Index() {
   useEffect(() => {
     const getFilms = async () => {
       const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/films`
-      )
+        , {
+          params: {
+            _limit: 10
+          }
+      })
       const data = await response.json()
       setFilm(data)
       setLoading(false)
@@ -108,7 +112,7 @@ export default function Index() {
                   },
                 },
               }} className="card-container absolute h-full w-full top-0 z-30 flex items-center p-0 justify-center text-white">
-                {films.map((item) => {
+                {films.slice(0,10).map((item) => {
                   const { id, name, sinopsis, rating, url } = item
                   return (
                     <SplideSlide className="card duration-200 w-full h-[70%] md:h-[300px] 2xl:h-[400px] bg-gray-600/25 rounded-xl backdrop-blur-xl flex items-center justify-center" key={id}>
@@ -127,7 +131,7 @@ export default function Index() {
                             </div>
                           </div>
                           <div className="button w-full md:w-[50%] flex md:justify-end items-center">
-                            <Link href={`/films/film/${name}`}><a className="px-5 py-2 bg-red-600 text-xs rounded">Nonton</a></Link>
+                            <Link href={`/films/film/${id}`}><a className="px-5 py-2 bg-red-600 text-xs rounded">Nonton</a></Link>
                           </div>
                         </div>
                       </div>
@@ -188,29 +192,29 @@ export default function Index() {
                 {films.map((film) => {
                   const { id, name, genre, url, rating } = film
                   return (
-                    <Link href={`/films/film/${name}`} key={id}>
-                    <SplideSlide className="card h-full">
-                      {loading ? <div className='h-full w-full flex items-center justify-center gap-4'><div className="circle w-[50px] h-[50px] rounded-full border-r-4 border-b-4 border-l-4 border-t-4 animate-spin animate-bounce border-red-600 border-solid z-40 text-white">   <svg class="circular-loader" viewBox="25 25 50 50" >
-                        <circle class="loader-path" cx="50" cy="50" r="20" fill="none" stroke="#dc2626" stroke-width="3" />
-                      </svg></div></div> : <div style={{ backgroundImage: `url(${url})` }} className="img-wrapper overflow-hidden relative h-[150px] w-[100px] md:h-[180px] md:w-[130px] 2xl:h-[200px] 2xl:w-[150px] bg-cover bg-center rounded-md group after:content-[''] after:absolute after:z-10 after:hover:bottom-0 after:-bottom-80 after:duration-200 after:left-0 after:w-full after:h-full after:bg-gradient-to-t after:from-[#121212] after:to-[#121212]/25 after:rounded-md cursor-pointer"
-                      >
-                        <div className="kategori absolute right-0 top-0 text-xs px-2 py-1 bg-red-600 rounded-tr-md rounded-bl-md z-30">
-                          <h2>{genre}</h2>
-                        </div>
-                        <div className="kategori absolute left-0 top-0 text-xs p-1 rounded-tr-md rounded-bl-md flex items-center z-30">
-                          <svg aria-hidden="true" className="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Rating star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                          <p className="ml-1 text-xs text-white">{rating}</p>
-                        </div>
-                        <div className="title absolute group-hover:bottom-2 -bottom-20 duration-200 w-full flex justify-center">
-                          <h1 className="z-50 text-xs text-center p-1 text-ellipsis">{name}</h1>
-                        </div>
-                      </div>}
+                    <Link href={`/films/film/${id}`} key={id}>
+                      <SplideSlide className="card h-full">
+                        {loading ? <div className='h-full w-full flex items-center justify-center gap-4'><div className="circle w-[50px] h-[50px] rounded-full border-r-4 border-b-4 border-l-4 border-t-4 animate-spin animate-bounce border-red-600 border-solid z-40 text-white">   <svg class="circular-loader" viewBox="25 25 50 50" >
+                          <circle class="loader-path" cx="50" cy="50" r="20" fill="none" stroke="#dc2626" stroke-width="3" />
+                        </svg></div></div> : <div style={{ backgroundImage: `url(${url})` }} className="img-wrapper overflow-hidden relative h-[150px] w-[100px] md:h-[180px] md:w-[130px] 2xl:h-[200px] 2xl:w-[150px] bg-cover bg-center rounded-md group after:content-[''] after:absolute after:z-10 after:hover:bottom-0 after:-bottom-80 after:duration-200 after:left-0 after:w-full after:h-full after:bg-gradient-to-t after:from-[#121212] after:to-[#121212]/25 after:rounded-md cursor-pointer"
+                        >
+                          <div className="kategori absolute right-0 top-0 text-xs px-2 py-1 bg-red-600 rounded-tr-md rounded-bl-md z-30">
+                            <h2>{genre}</h2>
+                          </div>
+                          <div className="kategori absolute left-0 top-0 text-xs p-1 rounded-tr-md rounded-bl-md flex items-center z-30">
+                            <svg aria-hidden="true" className="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Rating star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                            <p className="ml-1 text-xs text-white">{rating}</p>
+                          </div>
+                          <div className="title absolute group-hover:bottom-2 -bottom-20 duration-200 w-full flex justify-center">
+                            <h1 className="z-50 text-xs text-center p-1 text-ellipsis">{name}</h1>
+                          </div>
+                        </div>}
                       </SplideSlide>
                     </Link>
                   )
                 })}
               </Splide>}
-              
+
             </div>
           </div>
         </div>
