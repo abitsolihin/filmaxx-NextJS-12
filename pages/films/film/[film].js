@@ -168,7 +168,7 @@ const Film = () => {
               <div className="episode h-[20%] w-full flex flex-col gap-2">
                 <h1 className="font-light">Episode</h1>
                 <div className="episode-list flex gap-4">
-                  <Link href={streamUrl}>
+                  <Link href={`/films/watching/${title}`}>
                     <a className="px-2 py-1 border-[1px] border-solid border-white rounded-lg">E1</a>
                   </Link>
                 </div>

@@ -28,7 +28,7 @@ const Watching = () => {
   }, [watching]);
   return (
     <>
-       <nav className="w-full h-[60px] flex bg-[#121212]/50 backdrop-blur-xl shadow-md z-50">
+      <nav className="w-full h-[60px] flex bg-[#121212]/50 backdrop-blur-xl shadow-md z-50">
         <div className="logo p-4 w-[40%]">
           <h1 className="text-red-500 text-xl font-bold">FILMAXX</h1>
         </div>
@@ -57,15 +57,17 @@ const Watching = () => {
         </div>
       </nav>
       {/* body */}
-    <section className='min-h-screen max-w-screen p-4'>
-      <div className="content wrapper h-[100vh] w-full flex flex-col gap-4">
+      <section className="min-h-screen max-w-screen p-4">
+        <div className="content wrapper h-[100vh] w-full flex flex-col gap-4">
           <div className="stream-wrapper h-[40%] lg:h-full w-full">
             <div className="stream h-full w-full flex flex-col items-center ">
-              <div className="title w-full text-red-500 before:content-['>'] flex text-sm font-light gap-2 lg:py-4"><h1> `{title}</h1></div>
-              <iframe src={stream} width="100%" height="90%" frameborder="0"></iframe>
+              <div className="title w-full text-red-500 before:content-['>'] flex text-sm font-light gap-2 lg:py-4">
+                <h1> `{title}</h1>
+              </div>
+              <iframe src={stream} width="100%" height="90%" frameborder="0" allowFullScreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
             </div>
           </div>
-          <hr className='border-0 bg-red-500 h-[1px]'/>
+          <hr className="border-0 bg-red-500 h-[1px]" />
           <div className="info-film h-[60%] w-full text-white lg:hidden">
             <div className="title-wrapper h-20% w-full truncate text-lg md:text-2xl font-bold py-4">{title}</div>
             <div className="img-info h-[80%] flex gap-4">
@@ -93,12 +95,10 @@ const Watching = () => {
             </div>
           </div>
         </div>
-      <div className="sidebar h-[100vh] w-full ">
-        
-      </div>
+        <div className="sidebar h-[100vh] w-full "></div>
       </section>
     </>
-  )
+  );
 }
 
 export default Watching
