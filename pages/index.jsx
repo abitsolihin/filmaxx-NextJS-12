@@ -59,7 +59,7 @@ export default function Index() {
               </svg></div></div>) : (
               <Splide options={{
                 breakpoints: {
-                  2560: {
+                  5000: {
                     perPage: 3,
                     perMove: 3,
                     padding: '5rem',
@@ -108,7 +108,7 @@ export default function Index() {
                   },
                 },
               }} className="card-container absolute h-full w-full top-0 z-30 flex items-center p-0 justify-center text-white">
-                {films.slice(0,10).map((item) => {
+                {films.map((item) => {
                   const { id, name, sinopsis, rating, url } = item
                   return (
                     <SplideSlide className="card duration-200 w-full h-[70%] md:h-[250px] 2xl:h-[380px] bg-gray-600/25 rounded-xl backdrop-blur-xl flex items-center justify-center" key={id}>
@@ -163,7 +163,7 @@ export default function Index() {
                 speed: 1000,
                 pagination: false,
                 breakpoints: {
-                  2560: {
+                  5000: {
                     perPage: 12,
                     gap: '1px',
                   },
