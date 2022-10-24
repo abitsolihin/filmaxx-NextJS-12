@@ -1721,6 +1721,11 @@
     "loose-envify" "^1.1.0"
     "scheduler" "^0.23.0"
 
+"react-icons@^4.6.0":
+  "integrity" "sha512-rR/L9m9340yO8yv1QT1QurxWQvWpbNHqVX0fzMln2HEb9TEIrQRGsqiNFQfiv9/JEUbyHmHPlNTB2LWm2Ttz0g=="
+  "resolved" "https://registry.npmjs.org/react-icons/-/react-icons-4.6.0.tgz"
+  "version" "4.6.0"
+
 "react-idle-timer@^5.4.2":
   "integrity" "sha512-ofCS/qpFjm6ZguEyePvtf9YMDnLj7zZfeLXRWGRpsC6Ga47H4dm7EvoUW8MsozGEGy8zCvPK0Sk6YuAnwLEzRQ=="
   "resolved" "https://registry.npmjs.org/react-idle-timer/-/react-idle-timer-5.4.2.tgz"

@@ -1,7 +1,7 @@
-import Link from 'next/link';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import { BsBoxArrowLeft } from 'react-icons/bs';
 
 const Watching = () => {
   const [stream, setStream] = useState('');
@@ -38,8 +38,13 @@ const Watching = () => {
       {/* body */}
       <section className="max-h-screen max-w-screen">
         <div class="container h-screen w-screen flex items-center justify-center relative ">
-          <div id="title" className="absolute top-2 left-2 text-white text-2xl flex gap-2 duration-300">
-            {title}
+          <div id="title" className="absolute top-2 right-2 text-white flex items-start gap-2 duration-300">
+            <p className="text-2xl">{title}</p>
+          </div>
+          <div className="absolute top-2 left-2 text-white flex items-start gap-2 duration-300 z-50 cursor-pointer">
+            <a className="flex items-center gap-2 " onClick={() => router.back()}>
+              <BsBoxArrowLeft /> <span className="text-xs">Kembali</span>
+            </a>
           </div>
           {loading ? (
             <div className="h-full w-full flex items-center justify-center">

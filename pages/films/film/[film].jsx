@@ -3,6 +3,8 @@ import axios from 'axios';
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import { BsBoxArrowLeft } from 'react-icons/bs';
+
 
 const Film = () => {
   const [title, setTitle] = useState('');
@@ -50,11 +52,10 @@ const Film = () => {
           style={{ backgroundImage: `url(${background})` }}
           className="text-white min-h-screen max-w-screen bg-cover bg-no-repeat relative after:[''] after:absolute after:top-0 after:left-0 after:right-0 after:bottom-0 after:z-10 after:bg-gradient-to-t after:from-[#121212] after:to-[#121212]/10"
           >
-            <Link href="/">
-            <a className="backbutton cursor pointer text-white z-50 absolute left-8 top-2 before:content-['<'] flex gap-2 items-center">
-              Back To Home
+            <a className="backbutton cursor pointer text-white z-50 absolute left-8 top-2 flex gap-2 items-center " onClick={() => router.back()}>
+              <BsBoxArrowLeft/>
+              Kembali
             </a>
-            </Link>
           <Link href={`/films/watching/${title}`}>
             <a className="nonton-sekarang hidden cursor-pointer md:flex text-white absolute left-10 bottom-[43%] lg:bottom-[60%] z-20 items-center gap-2 h-[50px]">
               <h1 className="text-xl font-light">Nonton Sekarang</h1>
