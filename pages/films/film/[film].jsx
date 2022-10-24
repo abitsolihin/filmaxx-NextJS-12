@@ -37,37 +37,6 @@ const Film = () => {
         <title>Filmaxx | Nonton Film Tanpa Iklan</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      {/* Navbar */}
-      <nav className="w-full h-[60px] flex bg-[#121212]/50 backdrop-blur-xl shadow-md z-50 fixed">
-        <div className="logo p-4 w-[40%]">
-          <h1 className="text-red-500 text-xl font-bold">FILMAXX</h1>
-        </div>
-        <div className="hamburger sm:hidden h-full w-full justify-center items-end gap-[5px] flex flex-col pr-8">
-          <span className="h-[3px] w-[30px] bg-white"></span>
-          <span className="h-[3px] w-[35px] bg-white"></span>
-          <span className="h-[3px] w-[40px] bg-white"></span>
-        </div>
-        <div className="right hidden sm:flex w-full">
-          <div className="navlist w-[80%] lg:w-[85%] text-white flex items-center justify-end text-sm">
-            <Link href="/">
-              <a className="px-4 py-5 relative after:content-[''] after:bottom-0 after:h-[2px] hover:after:w-full after:w-0 after:absolute after:bg-red-600 flex flex-col justify-center items-center after:duration-200">Daftar Film</a>
-            </Link>
-            <Link href="/">
-              <a className="px-4 py-5 relative after:content-[''] after:bottom-0 after:h-[2px] hover:after:w-full after:w-0 after:absolute after:bg-red-600 flex flex-col justify-center items-center after:duration-200">Kartun</a>
-            </Link>
-            <Link href="/">
-              <a className="px-4 py-5 relative after:content-[''] after:bottom-0 after:h-[2px] hover:after:w-full after:w-0 after:absolute after:bg-red-600 flex flex-col justify-center items-center after:duration-200">Action</a>
-            </Link>
-          </div>
-          <div className="button w-[20%] lg:w-[15%] text-white flex items-center justify-center">
-            <Link href="/">
-              <a className="hover:bg-red-600 border-2 border-solid border-red-600 duration-200 px-5 text-sm py-2 rounded">Sign In</a>
-            </Link>
-          </div>
-        </div>
-      </nav>
-
-      {/* Body */}
       {loading ? (
         <div className="h-screen w-full flex items-center justify-center gap-4 z-50">
           <div className="circle w-[50px] h-[50px] rounded-full border-r-4 border-b-4 border-l-4 border-t-4 animate-spin animate-bounce border-red-600 border-solid z-40 text-white">
@@ -80,9 +49,14 @@ const Film = () => {
         <div
           style={{ backgroundImage: `url(${background})` }}
           className="text-white min-h-screen max-w-screen bg-cover bg-no-repeat relative after:[''] after:absolute after:top-0 after:left-0 after:right-0 after:bottom-0 after:z-10 after:bg-gradient-to-t after:from-[#121212] after:to-[#121212]/10"
-        >
+          >
+            <Link href="/">
+            <a className="backbutton cursor pointer text-white z-50 absolute left-8 top-2 before:content-['<'] flex gap-2 items-center">
+              Back To Home
+            </a>
+            </Link>
           <Link href={`/films/watching/${title}`}>
-            <a className="nonton-sekarang hidden md:flex text-white absolute left-10 bottom-[43%] lg:bottom-[60%] z-20 items-center gap-2 h-[50px]">
+            <a className="nonton-sekarang hidden cursor-pointer md:flex text-white absolute left-10 bottom-[43%] lg:bottom-[60%] z-20 items-center gap-2 h-[50px]">
               <h1 className="text-xl font-light">Nonton Sekarang</h1>
               <img className="w-[24px] h-[24px] mt-[5px]" src="/play.png" alt="play" />
             </a>
@@ -124,7 +98,7 @@ const Film = () => {
                 </div>
                 <div className="link-stream grid grid-cols-4 grid-rows-3 p-2 gap-1 md:gap-4">
                   <Link href="/">
-                    <a className="text-xs p-1 border-white border-[1px] border-solid rounded text-center">1</a>
+                    <a className="text-xs p-1 cursor-pointer border-white border-[1px] border-solid rounded text-center">1</a>
                   </Link>
                 </div>
               </div>
@@ -169,7 +143,7 @@ const Film = () => {
                 <h1 className="font-light">Episode</h1>
                 <div className="episode-list flex gap-4">
                   <Link href={`/films/watching/${title}`}>
-                    <a className="px-2 py-1 border-[1px] border-solid border-white rounded-lg">E1</a>
+                    <a className="px-2 py-1 cursor-pointer border-[1px] border-solid border-white rounded-lg">E1</a>
                   </Link>
                 </div>
               </div>

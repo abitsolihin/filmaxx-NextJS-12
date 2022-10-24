@@ -11,12 +11,7 @@ export default function Index() {
 
   useEffect(() => {
     const getFilms = async () => {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/films`
-        , {
-          params: {
-            _limit: 10
-          }
-      })
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/films`)
       const data = await response.json()
       setFilm(data)
       setLoading(false)
@@ -29,28 +24,29 @@ export default function Index() {
         <title>Filmaxx | Nonton Film Tanpa Iklan</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <nav className='w-full h-[60px] flex bg-[#121212]/25 backdrop-blur-xl shadow-md z-50 fixed'>
-        <div className="logo p-4 w-[40%]">
-          <h1 className='text-red-500 text-xl font-bold'>FILMAXX</h1>
-        </div>
-        <div className="hamburger sm:hidden h-full w-full justify-center items-end gap-[5px] flex flex-col pr-8">
-          <span className='h-[3px] w-[30px] bg-white'></span>
-          <span className='h-[3px] w-[35px] bg-white'></span>
-          <span className='h-[3px] w-[40px] bg-white'></span>
-        </div>
-        <div className="right hidden sm:flex w-full">
-          <div className="navlist w-[80%] lg:w-[85%] text-white flex items-center justify-end text-sm gap-4">
-            <Link href="/"><a className=" py-5 relative after:content-[''] after:bottom-0 after:h-[2px] hover:after:w-full after:w-0 after:absolute after:bg-red-600 flex flex-col justify-center items-center after:duration-200">Daftar Film</a></Link>
-            <Link href="/"><a className=" py-5 relative after:content-[''] after:bottom-0 after:h-[2px] hover:after:w-full after:w-0 after:absolute after:bg-red-600 flex flex-col justify-center items-center after:duration-200">Genre</a></Link>
-            <Link href="/"><a className=" py-5 relative after:content-[''] after:bottom-0 after:h-[2px] hover:after:w-full after:w-0 after:absolute after:bg-red-600 flex flex-col justify-center items-center after:duration-200">Baru Rilis</a></Link>
+     
+      <div className="container max-w-[1980px] mx-auto max-h-[100vh] relative">
+        <nav className='max-w-[1980px] mx-auto h-[60px] flex  z-50 absolute right-0 left-0'>
+          <div className="logo p-4 w-[40%]">
+            <h1 className='text-red-500 text-xl font-bold'>FILMAXX</h1>
           </div>
-          <div className="button w-[20%] lg:w-[15%] text-white flex items-center justify-center">
-            <Link href='/'><a className="hover:bg-red-600 border-2 border-solid border-red-600 duration-200 px-5 text-sm py-2 rounded" >Sign In</a></Link>
+          <div className="hamburger sm:hidden h-full w-full justify-center items-end gap-[5px] flex flex-col pr-8">
+            <span className='h-[3px] w-[30px] bg-white'></span>
+            <span className='h-[3px] w-[35px] bg-white'></span>
+            <span className='h-[3px] w-[40px] bg-white'></span>
           </div>
-        </div>
-      </nav>
-      <div className="container max-w-[100vw] min-h-[100%]">
-        <div className="section h-[70vh] w-full">
+          <div className="right hidden sm:flex w-full">
+            <div className="navlist w-[80%] lg:w-[85%] text-white flex items-center justify-end text-sm gap-4">
+              <Link href="/"><a className=" py-5 relative after:content-[''] after:bottom-0 after:h-[2px] hover:after:w-full after:w-0 after:absolute after:bg-red-600 flex flex-col justify-center items-center after:duration-200">Daftar Film</a></Link>
+              <Link href="/"><a className=" py-5 relative after:content-[''] after:bottom-0 after:h-[2px] hover:after:w-full after:w-0 after:absolute after:bg-red-600 flex flex-col justify-center items-center after:duration-200">Genre</a></Link>
+              <Link href="/"><a className=" py-5 relative after:content-[''] after:bottom-0 after:h-[2px] hover:after:w-full after:w-0 after:absolute after:bg-red-600 flex flex-col justify-center items-center after:duration-200">Baru Rilis</a></Link>
+            </div>
+            <div className="button w-[20%] lg:w-[15%] text-white flex items-center justify-center">
+              <Link href='/'><a className="hover:bg-red-600 border-2 border-solid border-red-600 duration-200 px-3 text-sm py-1 rounded" >Sign In</a></Link>
+            </div>
+          </div>
+        </nav>
+        <div className="section h-[60vh] w-full">
           <div className="background-container w-full h-full relative">
             <div className="video-wrapper  absolute w-full h-full">
               <video autoPlay muted loop className="object-cover w-full h-full">
@@ -115,7 +111,7 @@ export default function Index() {
                 {films.slice(0,10).map((item) => {
                   const { id, name, sinopsis, rating, url } = item
                   return (
-                    <SplideSlide className="card duration-200 w-full h-[70%] md:h-[300px] 2xl:h-[400px] bg-gray-600/25 rounded-xl backdrop-blur-xl flex items-center justify-center" key={id}>
+                    <SplideSlide className="card duration-200 w-full h-[70%] md:h-[250px] 2xl:h-[380px] bg-gray-600/25 rounded-xl backdrop-blur-xl flex items-center justify-center" key={id}>
                       <div className="article w-[60%] h-full p-2">
                         <div className="title md:h-[30%] h-[50px]  w-full flex items-center text-xl md:text-3xl ">
                           <h1 className='p-2 truncate'>{name}</h1>
@@ -136,7 +132,7 @@ export default function Index() {
                         </div>
                       </div>
                       <div className="img-wrapper w-[40%] h-[170px] md:h-[200px] lg:h-full flex justify-center p-4">
-                        <div style={{ backgroundImage: `url(${url})` }} className="rounded-xl w-full h-full bg-cover bg-center"
+                        <div style={{ backgroundImage: `url(${url})` }} className="rounded-xl w-full h-full bg-cover"
                         ></div>
                       </div>
                     </SplideSlide>
