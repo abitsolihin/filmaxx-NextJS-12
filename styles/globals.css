@@ -134,7 +134,7 @@ a {
   }
 }
 
-@media (max-width: 2560px) {
+@media (max-width: 5000px) {
   .splide__slide {
     transform: scale(1); /* sets all slides to a scaling of 0.8 (80%) */
     display: inline-flex; /* used for all slides vertical align center */
