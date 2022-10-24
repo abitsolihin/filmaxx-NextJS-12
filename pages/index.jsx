@@ -127,7 +127,7 @@ export default function Index() {
                             </div>
                           </div>
                           <div className="button w-full md:w-[50%] flex md:justify-end items-center">
-                            <Link href={`/films/film/${id}`}><a className="px-5 py-2 bg-red-600 text-xs rounded">Nonton</a></Link>
+                            <Link href={`/films/film/${name}`}><a className="px-5 py-2 bg-red-600 text-xs rounded">Nonton</a></Link>
                           </div>
                         </div>
                       </div>
@@ -188,7 +188,7 @@ export default function Index() {
                 {films.map((film) => {
                   const { id, name, genre, url, rating } = film
                   return (
-                    <Link href={`/films/film/${id}`} key={id}>
+                    <Link href={`/films/film/${name}`} key={id}>
                       <SplideSlide className="card h-full">
                         {loading ? <div className='h-full w-full flex items-center justify-center gap-4'><div className="circle w-[50px] h-[50px] rounded-full border-r-4 border-b-4 border-l-4 border-t-4 animate-spin animate-bounce border-red-600 border-solid z-40 text-white">   <svg class="circular-loader" viewBox="25 25 50 50" >
                           <circle class="loader-path" cx="50" cy="50" r="20" fill="none" stroke="#dc2626" stroke-width="3" />

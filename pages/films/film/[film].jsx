@@ -36,7 +36,7 @@ const Film = () => {
   return (
     <>
       <Head>
-        <title>Filmaxx | Nonton Film Tanpa Iklan</title>
+        <title>Filmaxx | {title}</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       {loading ? (
