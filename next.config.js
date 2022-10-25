@@ -8,6 +8,12 @@ const nextConfig = {
   env: { NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL },
 };
 
+module.exports = {
+  siteUrl: 'https://filmaxx.vercel.app',
+  generateRobotsTxt: true, // (optional)
+  // ...other options
+};
+
 const withVideos = require('next-videos');
 module.exports = withVideos();
 

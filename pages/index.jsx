@@ -109,7 +109,7 @@ export default function Index() {
                 },
               }} className="card-container absolute h-full w-full top-0 z-30 flex items-center p-0 justify-center text-white">
                 {films.map((item) => {
-                  const { id, name, sinopsis, rating, url } = item
+                  const { id, name, sinopsis, rating, url, endpoint } = item
                   return (
                     <SplideSlide className="card duration-200 w-full h-[70%] md:h-[250px] 2xl:h-[380px] bg-gray-600/25 rounded-xl backdrop-blur-xl flex items-center justify-center" key={id}>
                       <div className="article w-[60%] h-full p-2">

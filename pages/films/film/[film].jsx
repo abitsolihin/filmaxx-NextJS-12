@@ -19,7 +19,7 @@ const Film = () => {
 
   useEffect(() => {
     axios
-      .get(`${process.env.NEXT_PUBLIC_API_URL}/api/films/${film}`)
+      .get(`${process.env.NEXT_PUBLIC_API_URL}/api/films/film/${film}`)
       .then((res) => {
         setTitle(res.data.name)
         setImage(res.data.url);
@@ -52,10 +52,10 @@ const Film = () => {
           style={{ backgroundImage: `url(${background})` }}
           className="text-white min-h-screen max-w-screen bg-cover bg-no-repeat relative after:[''] after:absolute after:top-0 after:left-0 after:right-0 after:bottom-0 after:z-10 after:bg-gradient-to-t after:from-[#121212] after:to-[#121212]/10"
           >
-            <a className="backbutton cursor pointer text-white z-50 absolute left-8 top-2 flex gap-2 items-center " onClick={() => router.back()}>
+            <div className="backbutton cursor-pointer text-white z-50 absolute left-8 top-2 flex gap-2 items-center " onClick={() => router.back()}>
               <BsBoxArrowLeft/>
-              Kembali
-            </a>
+              <p>Kembali</p>
+            </div>
           <Link href={`/films/watching/${title}`}>
             <a className="nonton-sekarang hidden cursor-pointer md:flex text-white absolute left-10 bottom-[43%] lg:bottom-[60%] z-20 items-center gap-2 h-[50px]">
               <h1 className="text-xl font-light">Nonton Sekarang</h1>
