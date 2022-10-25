@@ -123,7 +123,7 @@ const Index = ({ films }) => {
                           </div>
                         </div>
                         <div className="button w-full md:w-[50%] flex md:justify-end items-center">
-                          <Link href={`/films/${film.name}`}>
+                          <Link href={`/films/film/${film.name}`}>
                             <a className="px-5 py-2 bg-red-600 text-xs rounded">Nonton</a>
                           </Link>
                         </div>
@@ -192,7 +192,7 @@ const Index = ({ films }) => {
                 className="absolute top-0 h-full w-full flex justify-center"
               >
                 {films.map((film) => (
-                  <Link href={`/films/${film.name}`} key={film.id}>
+                  <Link href={`/films/film/${film.id}`} key={film.id}>
                     <SplideSlide className="card h-full">
                       <div
                         style={{ backgroundImage: `url(${film.url})` }}
@@ -224,6 +224,8 @@ const Index = ({ films }) => {
   );
 };
 
+export default Index;
+
 export const getStaticProps = async () => {
   const resp = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/films`);
   const films = await resp.json();
@@ -234,4 +236,3 @@ export const getStaticProps = async () => {
     },
   };
 };
-export default Index;
