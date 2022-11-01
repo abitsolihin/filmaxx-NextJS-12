@@ -43,14 +43,16 @@ a {
 .circular-loader {
   -webkit-animation: rotate 2s linear infinite;
   animation: rotate 2s linear infinite;
-  height: 100%;
+  height: 25%;
   -webkit-transform-origin: center center;
   -ms-transform-origin: center center;
   transform-origin: center center;
-  width: 100%;
+  width: 25%;
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 50%;
+  left: 40%;
+  right: 60%;
+  bottom: 50%;
   margin: auto;
 }
 

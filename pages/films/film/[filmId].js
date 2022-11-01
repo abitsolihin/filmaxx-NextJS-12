@@ -130,7 +130,7 @@ export const getStaticPaths = async () => {
   const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/films`);
   const data = await response.json()
 
-  const paths = data.map((item) => ({
+  const paths = data.rows.map((item) => ({
     params: {
       filmId: `${item.name}`
     }

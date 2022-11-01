@@ -28,7 +28,7 @@ const Watching = ({ watch }) => {
               <BsBoxArrowLeft /> <span className="text-xs">Kembali</span>
             </a>
           </div>
-            <iframe onMouseMove={mouseMove} onMouseOut={mouseOut} onMouseEnter={mouseEnter} src={watch.stream_url} width="98%" height="98%" frameborder="0" allowFullScreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
+            <iframe onMouseMove={mouseMove} onMouseOut={mouseOut} onMouseEnter={mouseEnter} src={watch.stream_url} width="98%" height="98%" frameBorder="0" allowFullScreen={true} webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
         </div>
       </section>
     </>
@@ -41,7 +41,7 @@ export const getStaticPaths = async () => {
   const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/films`);
   const data = await response.json();
 
-  const paths = data.map((item) => ({
+  const paths = data.rows.map((item) => ({
     params: {
       watchingId: `${item.name}`,
     },
