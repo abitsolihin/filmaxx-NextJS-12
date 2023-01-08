@@ -70,7 +70,11 @@ const Genre = ({ films }) => {
 export default Genre;
 
 export const getStaticProps = async () => {
-    const resp = await fetch(`https://filmaxx-server.vercel.app/films/`);
+    const resp = await fetch(`https://filmaxx-server.vercel.app/films/`, {
+        headers:{
+            'Content-Type':'application/json'
+        }
+    });
     const films = await resp.json();
   
     return {
