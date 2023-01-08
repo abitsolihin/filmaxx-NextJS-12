@@ -54,7 +54,7 @@ const Watching = ({ watch }) => {
 export default Watching
 
 export const getStaticPaths = async () => {
-  const response = await fetch(`https://filmaxx-server.vercel.app/films`);
+  const response = await fetch(`https://filmaxx-server.vercel.app/films/`);
   const data = await response.json();
 
   const paths = data.map((item) => ({
@@ -69,7 +69,7 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps = async ({params}) => {
-  const resp = await fetch(`https://filmaxx-server.vercel.app/films${params.watchingId}`);
+  const resp = await fetch(`https://filmaxx-server.vercel.app/films/${params.watchingId}`);
   const watch = await resp.json();
 
   return {

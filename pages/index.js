@@ -228,7 +228,7 @@ const Index = ({ data }) => {
 export default Index;
 
 export const getStaticProps = async () => {
-  const resp = await fetch(`https://filmaxx-server.vercel.app/films`);
+  const resp = await fetch(`https://filmaxx-server.vercel.app/films/`);
   const data = await resp.json();
 
   return {
