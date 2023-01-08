@@ -2,7 +2,6 @@ import { useRouter } from 'next/router';
 import { BsBoxArrowLeft } from 'react-icons/bs';
 
 const Watching = ({ watch }) => {
-  
   const router = useRouter();
 
 
@@ -54,9 +53,8 @@ const Watching = ({ watch }) => {
 export default Watching
 
 export const getStaticPaths = async () => {
-  const response = await fetch(`https://filmaxx-server.vercel.app/films/`);
+  const response = await fetch(`https://filmaxx-server.vercel.app/films`);
   const data = await response.json();
-
   const paths = data.map((item) => ({
     params: {
       watchingId: `${item.id}`,
