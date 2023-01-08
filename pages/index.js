@@ -4,7 +4,7 @@ import Head from 'next/head';
 
 import '@splidejs/react-splide/css';
 
-const Index = ({ films }) => {
+const Index = ({ data }) => {
   return (
     <>
       <Head>
@@ -13,7 +13,7 @@ const Index = ({ films }) => {
       </Head>
 
       <div className="container max-w-[1980px] mx-auto max-h-[100vh] relative">
-        <nav className="max-w-[1980px] mx-auto h-[60px] flex  z-50 absolute right-0 left-0">
+        <nav className="max-w-[1980px] mx-auto h-[60px] flex  z-50 right-0 left-0">
           <div className="logo p-4 w-[40%]">
             <h1 className="text-red-500 text-xl font-bold">FILMAXX</h1>
           </div>
@@ -102,11 +102,11 @@ const Index = ({ films }) => {
               }}
               className="card-container absolute h-full w-full top-0 z-30 flex items-center p-0 justify-center text-white"
             >
-              {films.rows.map((film) => (
+              {data.slice(10,20).map((film) => (
                 <SplideSlide className="card duration-200 w-full h-[70%] md:h-[250px] 2xl:h-[380px] bg-gray-600/25 rounded-xl backdrop-blur-xl flex items-center justify-center" key={film.id}>
                   <div className="article w-[60%] h-full p-2">
                     <div className="title md:h-[30%] h-[50px]  w-full flex items-center text-xl md:text-3xl ">
-                      <h1 className="p-2 truncate">{film.name}</h1>
+                      <h1 className="p-2 truncate">{film.title}</h1>
                     </div>
                     <div className="description h-[90px] md:h-[120px] 2xl:h-[50%] overflow-ellipsis w-full text-xs 2xl:text-base md:text-sm flex items-center md:items-start font-light p-2">
                       <p className="h-[80px] md:h-[120px] 2xl:h-full overflow-ellipsis overflow-y-hidden">{film.sinopsis}</p>
@@ -118,26 +118,26 @@ const Index = ({ films }) => {
                             <title>Rating star</title>
                             <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
                           </svg>
-                          <p className="ml-1 text-sm text-white">{film.rating} / 5</p>
+                          <p className="ml-1 text-sm text-white">{film.rating} / 10</p>
                         </div>
                       </div>
                       <div className="button w-full md:w-[50%] flex md:justify-end items-center">
-                        <Link href={`/films/film/${film.name}`}>
+                        <Link href={`/films/film/${film.id}`}>
                           <a className="px-5 py-2 bg-red-600 text-xs rounded">Nonton</a>
                         </Link>
                       </div>
                     </div>
                   </div>
-                  <div className="img-wrapper w-[40%] h-[170px] md:h-[200px] lg:h-full flex justify-center p-4">
-                    <div className=" w-full h-full flex justify-center items.center">
-                      <img className="rounded-xl" src={film.url} alt="thumbnail" loading="lazy" width={'90%'} height={'100%'} />
+                  <div className="img-wrapper w-[40%] h-[170px] md:h-[200px] lg:h-full flex justify-center items-center p-4">
+                    <div className=" w-full h-[90%] flex justify-center items.center">
+                      <img className="rounded-xl" src={`https://filmaxx-server.vercel.app/${film.image}`} alt="thumbnail" loading="lazy" width={'90%'} height={'100%'} />
                     </div>
                   </div>
                 </SplideSlide>
               ))}
             </Splide>
           </div>
-          <div className="section h-[40vh] text-white ">
+          <div className="section h-[40vh] max-w-[1280px] mx-auto text-white ">
             <div className="title-wrapper flex p-4">
               <div className="title w-3/6 text-xl md:text-2xl lg:text-3xl">Rekomendasi</div>
               <div className="genre w-3/6 flex justify-end gap-2 xl:gap-8 text-xs 2xl:text-xl items-center">
@@ -173,7 +173,7 @@ const Index = ({ films }) => {
                       gap: '1px',
                     },
                     1920: {
-                      perPage: 9,
+                      perPage: 7,
                       gap: '15px',
                     },
                     1024: {
@@ -192,15 +192,15 @@ const Index = ({ films }) => {
                 }}
                 className="absolute top-0 h-full w-full flex justify-center"
               >
-                {films.rows.map((film) => (
+                {data.slice(0,10).map((film) => (
                   <Link href={`/films/film/${film.id}`} key={film.id}>
-                    <SplideSlide className="card h-full">
+                    <SplideSlide className="card">
                       <div
-                        style={{ backgroundImage: `url(${film.url})` }}
+                        style={{ backgroundImage:`url(https://filmaxx-server.vercel.app/${film.image})` }}
                         className="img-wrapper overflow-hidden relative h-[150px] w-[100px] md:h-[180px] md:w-[130px] 2xl:h-[200px] 2xl:w-[150px] bg-cover bg-center rounded-md group after:content-[''] after:absolute after:z-10 after:hover:bottom-0 after:-bottom-80 after:duration-200 after:left-0 after:w-full after:h-full after:bg-gradient-to-t after:from-[#121212] after:to-[#121212]/25 after:rounded-md cursor-pointer"
                       >
                         <div className="kategori absolute right-0 top-0 text-xs px-2 py-1 bg-red-600 rounded-tr-md rounded-bl-md z-30">
-                          <h2>{film.genre}</h2>
+                          <h2>{film.genre[0]}</h2>
                         </div>
                         <div className="kategori absolute left-0 top-0 text-xs p-1 rounded-tr-md rounded-bl-md flex items-center z-30">
                           <svg aria-hidden="true" className="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -210,7 +210,7 @@ const Index = ({ films }) => {
                           <p className="ml-1 text-xs text-white">{film.rating}</p>
                         </div>
                         <div className="title absolute group-hover:bottom-2 -bottom-20 duration-200 w-full flex justify-center">
-                          <h1 className="z-50 text-xs text-center p-1 text-ellipsis">{film.name}</h1>
+                          <h1 className="z-50 text-xs text-center p-1 text-ellipsis">{film.title}</h1>
                         </div>
                       </div>
                     </SplideSlide>
@@ -228,12 +228,12 @@ const Index = ({ films }) => {
 export default Index;
 
 export const getStaticProps = async () => {
-  const resp = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/films`);
-  const films = await resp.json();
+  const resp = await fetch(`https://filmaxx-server.vercel.app/films`);
+  const data = await resp.json();
 
   return {
     props: {
-      films,
+      data,
     },
   };
 };

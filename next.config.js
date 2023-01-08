@@ -3,7 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: ['filmaxxapi.herokuapp.com'],
+    domains: ['https://filmaxx-server.vercel.app/'],
   },
   env: { NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL },
 };
