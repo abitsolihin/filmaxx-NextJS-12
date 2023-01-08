@@ -1,4 +1,6 @@
+
 import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 import { BsBoxArrowLeft } from 'react-icons/bs';
 
 const Watching = ({ watch }) => {
@@ -14,6 +16,7 @@ const Watching = ({ watch }) => {
     document.body.style.cursor = 'none';
   }
   
+  useEffect(() => {
     let idleTimer;
     document.onmousemove = () => {
     clearTimeout(idleTimer);
@@ -26,6 +29,8 @@ const Watching = ({ watch }) => {
       hideCursor();
     }, 3000);
   };
+  },[])
+    
   
   return (
     <>
