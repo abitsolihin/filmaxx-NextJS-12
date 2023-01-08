@@ -1,65 +1,52 @@
-import { useState, useEffect } from 'react';
-import { BsFillArrowLeftCircleFill, BsFillArrowRightCircleFill } from 'react-icons/bs'
-import ReactPaginate from 'react-paginate'
-import {useRouter} from 'next/router'
+import {BsSearch} from "react-icons/bs"
 
 const Genre = ({ films }) => {
-    const [listFilms, setListFilms] = useState(films)
-    const [pageCount, setPageCount] = useState(0)
-    const [loading, setLoading] = useState(true)
-    const router = useRouter()
-
-    useEffect(() => {
-        const getFilms = async () => {
-            const resp = await fetch(`https://filmaxx-server.vercel.app/films/`)
-            const films = await resp.json()
-            setPageCount(films.count / 6)
-            setListFilms(films)
-            setLoading(false)
-        }
-        getFilms()
-    },[])
-
-
-    const fetchFilms = async (currentPage) => {
-        const resp = await fetch(`https://filmaxx-server.vercel.app/films/`);
-        const films = await resp.json()
-        return films;
-    }
-
-
-    const handlePageClick = async (data) => {
-        console.log(data.selected)
-        let currentPage = data.selected + 1;
-        let p = currentPage >= 1 ? currentPage : 1;
-        router.replace(`?page=${p}&limit=6`)
-        const filmsFromServer = await fetchFilms(currentPage)
-        setListFilms(filmsFromServer)
-    };
 
 
     return (
-        <div className="max-w-[1980px] h-screen">
-    
+        <div className="max-w-[1280px] min-h-screen mx-auto">
             <div className="container h-full w-full">
-                <div className="title text-white px-4 text-2xl flex items-center py-2"><h1>Daftar Film</h1></div>
-                {loading ? <div id="wrapper flex items-center justify-center">
-                    <div className="profile-main-loader">
-                        <div className="loader">
-                            <svg className="circular-loader" viewBox="25 25 50 50" >
-                                <circle className="loader-path" cx="50" cy="50" r="20" fill="none" stroke="#dc2626" stroke-width="2" />
-                            </svg>
-                        </div>
+                <div className="title text-white px-4 text-2xl flex items-center py-4 justify-between">
+                    <div className="title"><h1>Daftar Film</h1></div>
+                    <div className="search-bar border-2 border-red-500 border-solid rounded-full w-[400px] flex items-center px-4 py-2">
+                        <input className="bg-transparent text-white focus:outline-none text-base w-full" placeholder="Cari Film Disini" type="text" />
+                        <button><BsSearch/></button>
                     </div>
-
-                </div> : <div className="cards h-full w-full grid grid-cols-2 grid-rows-3 gap-4 pr-4 pl-4 pb-4">
-                    {listFilms.rows.map((item, index) => {
-                        const { name, rating, url, genre } = item
+                </div>
+                <div className="genre-container flex gap-2 p-4">
+                    <div className="genre-card px-4 py-2 border-2 border-red-600 border-solid cursor-pointer rounded-full text-white">
+                        <p>Action</p>
+                    </div>
+                    <div className="genre-card px-4 py-2 border-2 border-red-600 border-solid cursor-pointer rounded-full text-white">
+                        <p>Adventure</p>
+                    </div>
+                    <div className="genre-card px-4 py-2 border-2 border-red-600 border-solid cursor-pointer rounded-full text-white">
+                        <p>Comedy</p>
+                    </div>
+                    <div className="genre-card px-4 py-2 border-2 border-red-600 border-solid cursor-pointer rounded-full text-white">
+                        <p>Fantasy</p>
+                    </div>
+                    <div className="genre-card px-4 py-2 border-2 border-red-600 border-solid cursor-pointer rounded-full text-white">
+                        <p>Kids</p>
+                    </div>
+                    <div className="genre-card px-4 py-2 border-2 border-red-600 border-solid cursor-pointer rounded-full text-white">
+                        <p>Drama</p>
+                    </div>
+                    <div className="genre-card px-4 py-2 border-2 border-red-600 border-solid cursor-pointer rounded-full text-white">
+                        <p>Horror</p>
+                    </div>
+                    <div className="genre-card px-4 py-2 border-2 border-red-600 border-solid cursor-pointer rounded-full text-white">
+                        <p>Cartoon</p>
+                    </div>
+                </div>
+                    <div className="cards h-full w-full grid grid-cols-5 gap-4 pr-4 pl-4 pb-4">
+                    {films.map((item, index) => {
+                        const { title, rating, image, genre } = item
                         return (
-                            <div className="card  w-full h-full rounded-md overflow-hidden relative   md:w-[130px] 2xl:h-[200px] 2xl:w-[150px] bg-cover bg-center group after:content-[''] after:absolute after:z-10 after:hover:bottom-0 after:-bottom-80 after:duration-200 after:left-0 after:w-full after:h-full after:bg-gradient-to-t after:from-[#121212] after:to-[#121212]/25 after:rounded-md cursor-pointer" key={index}>
-                                <img src={url} alt="thumbnail" loading='lazy' />
+                            <div className="card  w-full h-full rounded-md overflow-hidden relative bg-cover bg-center group after:content-[''] after:absolute after:z-10 after:hover:bottom-0 after:-bottom-80 after:duration-200 after:left-0 after:w-full after:h-full after:bg-gradient-to-t after:from-[#121212] after:to-[#121212]/25 after:rounded-md cursor-pointer" key={index}>
+                                <img src={`https://filmaxx-server.vercel.app/${image}`} alt="thumbnail" loading='lazy' />
                                 <div className="kategori absolute right-0 top-0 text-xs px-2 py-1 bg-red-600 rounded-tr-md rounded-bl-md z-30 text-white">
-                                    <h2>{genre}</h2>
+                                    <h2>{genre[1]}</h2>
                                 </div>
                                 <div className="kategori absolute left-0 top-0 text-xs p-1 rounded-tr-md rounded-bl-md flex items-center z-30">
                                     <svg aria-hidden="true" className="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -69,23 +56,11 @@ const Genre = ({ films }) => {
                                     <p className="ml-1 text-xs text-white">{rating}</p>
                                 </div>
                                 <div className="title absolute text-white -bottom-20 group-hover:bottom-2 duration-200 w-full flex justify-center">
-                                    <h1 className="z-50 text-xs text-center p-1 text-ellipsis">{name}</h1>
+                                    <h1 className="z-50 text-xs text-center p-1 text-ellipsis">{title}</h1>
                                 </div>
                             </div>
                         )
                     })}
-                </div>}
-                <div className="next-prev-button w-full fixed bottom-6 flex justify-center z-50 text-white px-4">
-                    <div className="wrapper flex items-center justify-center gap-4 bg-slate-800 p-2 rounded-3xl">
-                        <ReactPaginate className='flex gap-2 items-center text-xs'
-                            previousLabel={<BsFillArrowLeftCircleFill size={24} color="red" />}
-                            nextLabel={<BsFillArrowRightCircleFill size={24} color="red" />}
-                            breakLabel={"..."}
-                            pageCount={pageCount}
-                            activeClassName={'active text-red-600'}
-                            onPageChange={handlePageClick}
-                        />
-                    </div>
                 </div>
             </div>
         </div>
@@ -94,29 +69,13 @@ const Genre = ({ films }) => {
 
 export default Genre;
 
-// export const getStaticPaths = async () => {
-//     const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/films`);
-//     const data = await response.json();
-
-//     const paths = data.rows.map((item) => ({
-//         params: {
-//             currentPage: `${item.id}`,
-//         },
-//     }));
-//     return {
-//         paths,
-//         fallback: false,
-//     };
-// }
-
 export const getStaticProps = async () => {
-    const response = await fetch(`https://filmaxx-server.vercel.app/films/`)
-    const data = await response.json()
-    // const page = (response.count / 6)
+    const resp = await fetch(`https://filmaxx-server.vercel.app/films/`);
+    const films = await resp.json();
+  
     return {
-        props: {
-            films: data,
-            // page,
-        }
-    }
-}
+      props: {
+        films,
+      },
+    };
+  };
