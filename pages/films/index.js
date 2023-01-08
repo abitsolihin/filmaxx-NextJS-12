@@ -11,7 +11,7 @@ const Genre = ({ films }) => {
 
     useEffect(() => {
         const getFilms = async () => {
-            const resp = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/films?page=1&limit=6`)
+            const resp = await fetch(`https://filmaxx-server.vercel.app/films/`)
             const films = await resp.json()
             setPageCount(films.count / 6)
             setListFilms(films)
@@ -22,7 +22,7 @@ const Genre = ({ films }) => {
 
 
     const fetchFilms = async (currentPage) => {
-        const resp = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/films?page=${currentPage}&limit=6`);
+        const resp = await fetch(`https://filmaxx-server.vercel.app/films/`);
         const films = await resp.json()
         return films;
     }
@@ -110,7 +110,7 @@ export default Genre;
 // }
 
 export const getStaticProps = async () => {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/films`)
+    const response = await fetch(`https://filmaxx-server.vercel.app/films/`)
     const data = await response.json()
     // const page = (response.count / 6)
     return {
