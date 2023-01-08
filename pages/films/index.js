@@ -41,8 +41,9 @@ const Genre = ({ films }) => {
                 </div>
                     <div className="cards h-full w-full grid grid-cols-5 gap-4 pr-4 pl-4 pb-4">
                     {films.map((item, index) => {
-                        const { title, rating, image, genre } = item
+                        const { title, rating, image, genre, id } = item
                         return (
+                            <Link href={`/films/watching/${id}`}>
                             <div className="card  w-full h-full rounded-md overflow-hidden relative bg-cover bg-center group after:content-[''] after:absolute after:z-10 after:hover:bottom-0 after:-bottom-80 after:duration-200 after:left-0 after:w-full after:h-full after:bg-gradient-to-t after:from-[#121212] after:to-[#121212]/25 after:rounded-md cursor-pointer" key={index}>
                                 <img src={`https://filmaxx-server.vercel.app/${image}`} alt="thumbnail" loading='lazy' />
                                 <div className="kategori absolute right-0 top-0 text-xs px-2 py-1 bg-red-600 rounded-tr-md rounded-bl-md z-30 text-white">
@@ -59,6 +60,7 @@ const Genre = ({ films }) => {
                                     <h1 className="z-50 text-xs text-center p-1 text-ellipsis">{title}</h1>
                                 </div>
                             </div>
+                            </Link>
                         )
                     })}
                 </div>
