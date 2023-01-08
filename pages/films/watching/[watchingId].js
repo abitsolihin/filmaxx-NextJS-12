@@ -35,7 +35,7 @@ const Watching = ({ watch }) => {
   return (
     <>
       {/* body */}
-      <section className="max-h-screen max-w-screen">
+      <section className="max-h-screen max-w-screen flex items-center justify-center">
         <div class="container h-screen w-screen flex items-center justify-center relative ">
           <div id="title" className="absolute top-2 right-2 text-white flex items-start gap-2 duration-300">
             <p className="text-2xl">{watch.title}</p>
