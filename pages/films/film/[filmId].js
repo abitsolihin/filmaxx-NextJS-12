@@ -5,13 +5,12 @@ import { BsBoxArrowLeft } from 'react-icons/bs';
 
 
 const Film = ({ film }) => {
-  
   const router = useRouter();
 
   return (
     <>
       <Head>
-        <title>Filmaxx | Nonton Film</title>
+        <title>{film.title}</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
         <div
@@ -59,7 +58,7 @@ const Film = ({ film }) => {
                 </div>
               </div>
               <div className="img-wrapper w-3/6 p-6 pt-4 flex items-center md:justify-center">
-                <img className="rounded-md md:w-[150px]" src={`http://localhost:8000/${film.image}`} alt="Thumbnail" />
+                <img className="rounded-md md:w-[150px]" src={`https://filmaxx-server.vercel.app/${film.image}`} alt="Thumbnail" />
               </div>
             </div>
             <div className="episode-wrapper h-[40%]">
@@ -135,7 +134,7 @@ const Film = ({ film }) => {
 export default Film;
 
 export const getStaticPaths = async () => {
-  const response = await fetch(`https://filmaxx-server.vercel.app/films/`);
+  const response = await fetch(`https://filmaxx-server.vercel.app/films`);
   const data = await response.json()
 
   const paths = data.map((item) => ({
