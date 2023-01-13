@@ -10,6 +10,7 @@ const Index = ({ data }) => {
       <Head>
         <title>Filmaxx | Nonton Film Tanpa Iklan</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta name="description" content="Filmaxx adalah Website Untuk Kalian Menonton Film Tanpa Iklan" />
       </Head>
 
       <div className="container max-w-[1980px] mx-auto max-h-[100vh] relative">
