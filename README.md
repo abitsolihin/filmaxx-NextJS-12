@@ -1,4 +1,8 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<img align="center" src="./images/thumbnail.png" alt="thumbnail" width="600px" height="600px"/>
+
+## Filmaxx
+  
+Filmaxx adalah website yang menyediakan film gratis tanpa iklan. Pengguna dapat menonton beragam jenis film tanpa harus terganggu oleh iklan yang mengganggu. Website ini menyediakan koleksi film yang bervariasi dan dapat diakses dengan mudah. Filmaxx merupakan pilihan yang tepat bagi mereka yang mencari cara untuk menonton film secara gratis dan tanpa gangguan iklan.
 
 ## Getting Started
 
