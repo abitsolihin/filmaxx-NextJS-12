@@ -1,4 +1,4 @@
-<img align="center" src="./images/thumbnail.png" alt="thumbnail" width="1280px" height="600px"/>
+<img align="center" src="./images/thumbnail.png" alt="thumbnail" width="1280px" height="500px"/>
 
 ## Filmaxx
   
